@@ -9,6 +9,8 @@ Vue.use(VueMeta, {
   keyName: 'meta',
 });
 
+NProgress.configure({ showSpinner: false });
+
 const router = new VueRouter({
   routes,
   // Use the HTML5 history API (i.e. normal-looking routes)

@@ -2,7 +2,7 @@ export default [
   {
     path: '/login',
     name: 'login',
-    component: loadView('@views'),
+    component: loadView('auth/login.vue'),
   },
   {
     path: '/404',

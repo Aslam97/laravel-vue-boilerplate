@@ -1,0 +1,14 @@
+{
+  "auth": {
+    "login": {
+      "title": "Login",
+      "email": "Email",
+      "password": "Password",
+      "remember_me": "Remember Me",
+      "forgot_password": "Forgot Your Password?",
+      "submit": "Log in",
+      "register_placeholder": "Don't have an account?",
+      "register": "Register"
+    }
+  }
+}

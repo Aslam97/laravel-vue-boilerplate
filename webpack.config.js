@@ -4,6 +4,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
 
 const report = process.argv.slice(2).includes('--report');
+const moduleList = ['vue'];
 
 module.exports = {
   resolve: {
@@ -14,6 +15,8 @@ module.exports = {
       '@plugins': path.join(__dirname, './resources/js/plugins'),
       '@router': path.join(__dirname, './resources/js/router'),
       '@store': path.join(__dirname, './resources/js/store'),
+      '@design': path.join(__dirname, './resources/js/design'),
+      '@lang': path.join(__dirname, './resources/js/lang'),
       '@utils': path.join(__dirname, './resources/js/utils'),
       '@views': path.join(__dirname, './resources/js/views'),
       '@layouts': path.join(__dirname, './resources/js/views/layouts'),
@@ -31,6 +34,6 @@ module.exports = {
   ],
   output: {
     filename: '[name].js',
-    chunkFilename: 'js/[name].[chunkhash:8].js',
+    chunkFilename: 'js/chunks/[contenthash:8].chunk.js',
   },
 };
