@@ -5,7 +5,6 @@ progress: 60%
 ## Features
 
 - Laravel 8
-- Extract + dynamic import
 - CSS Module (support pre-processor)
 - Sanctum
 
