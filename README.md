@@ -5,6 +5,8 @@ progress: 60%
 ## Features
 
 - Laravel 8
+- Night mode
+- Integrate vee-validate and vue-i18n
 - CSS Module (support pre-processor)
 - Sanctum
 
