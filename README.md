@@ -1,5 +1,7 @@
 # Laravel Vue Boilerplace
 
+progress: 60%
+
 ## Features
 
 - Laravel 8
