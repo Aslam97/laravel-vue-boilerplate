@@ -31,7 +31,7 @@ export const actions = {
   serverLocale({}, payload) {
     return new Promise((resolve, reject) => {
       axios
-        .patch('api/locale', payload)
+        .patch('/api/locale', payload)
         .then(({ data }) => resolve(data))
         .catch(({ response }) => reject(response));
     });

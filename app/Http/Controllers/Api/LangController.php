@@ -14,7 +14,7 @@ class LangController extends Controller
         app()->setLocale(request('locale'));
         session(['locale' => request('locale')]);
 
-        return new JsonResponse([], Response::HTTP_OK);
+        return new JsonResponse('', Response::HTTP_NO_CONTENT);
     }
 
 }

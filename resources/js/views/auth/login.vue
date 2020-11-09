@@ -12,10 +12,31 @@ export default {
     email: '',
     password: '',
     remember: '',
+    wait: false,
   }),
 
   methods: {
-    onSubmit() {},
+    onSubmit() {
+      this.$store.dispatch('auth/csrf').then(() => {
+        this.wait = true;
+
+        this.$store
+          .dispatch('auth/login', this.$data)
+          .then(result => {
+            this.wait = false;
+          })
+          .catch(({ data }) => {
+            const { errors } = data;
+
+            this.wait = false;
+            this.$refs.formLogin.setErrors(errors);
+          });
+      });
+    },
+  },
+
+  mounted() {
+    this.$store.dispatch('user/me');
   },
 };
 </script>
@@ -24,7 +45,7 @@ export default {
   <AuthLayout>
     <Logo />
     <ValidationObserver
-      ref="form"
+      ref="formLogin"
       v-slot="{ handleSubmit }"
       tag="div"
       :class="[
@@ -65,6 +86,7 @@ export default {
           <div :class="[$style.flex, $style['items-center']]">
             <input
               :class="$style.formCheckbox"
+              v-model="remember"
               type="checkbox"
               name="remember"
             />
@@ -89,8 +111,9 @@ export default {
             {{ $t('auth.login.forgot_password') }}
           </BaseLink>
 
-          <BaseButton :class="$style['ml-4']">
-            {{ $t('auth.login.submit') }}
+          <BaseButton :class="$style['ml-4']" :disabled="wait">
+            <BaseSpinner v-if="wait" bgColor="#1a202c" />
+            <span v-else>{{ $t('auth.login.submit') }}</span>
           </BaseButton>
         </div>
       </form>

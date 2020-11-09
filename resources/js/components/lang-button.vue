@@ -25,10 +25,6 @@ export default {
       }
     },
   },
-
-  mounted() {
-    console.log(this.filterNotActiveLang);
-  },
 };
 </script>
 
@@ -99,9 +95,9 @@ export default {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
   padding: 0;
   border-radius: 50%;
   cursor: pointer;

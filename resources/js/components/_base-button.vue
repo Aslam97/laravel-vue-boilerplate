@@ -1,8 +1,5 @@
 <template>
-  <button
-    :class="[$style.btn, $style.btnBlue]"
-    v-on="$listeners"
-  >
+  <button :class="[$style.btn, $style.btnBlue]" v-on="$listeners">
     <slot />
   </button>
 </template>
@@ -19,7 +16,6 @@
   align-items: center;
   text-align: center;
   border-radius: 2px;
-  box-sizing: border-box;
   user-select: none;
   outline: none;
   border: 0;
@@ -29,10 +25,6 @@
   white-space: nowrap;
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 14px;
-  font-style: inherit;
-  font-variant: inherit;
-  font-family: inherit;
   text-decoration: none;
   overflow: hidden;
   transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
@@ -57,7 +49,6 @@
   border-radius: 8px;
   text-transform: none;
   letter-spacing: 0.25px;
-  min-width: 60px;
 }
 
 .btnSm {

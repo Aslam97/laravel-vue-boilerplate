@@ -7,5 +7,5 @@ use Illuminate\Support\Facades\Route;
 Route::match(['put', 'patch'], 'locale', [LangController::class, 'update']);
 
 Route::middleware('auth:sanctum')->group(function ($route) {
-    $route->get('/user', [UserController::class, 'show']);
+    $route->get('/me', [UserController::class, 'me']);
 });
