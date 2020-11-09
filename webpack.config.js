@@ -4,7 +4,6 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
 
 const report = process.argv.slice(2).includes('--report');
-const moduleList = ['vue'];
 
 module.exports = {
   resolve: {
