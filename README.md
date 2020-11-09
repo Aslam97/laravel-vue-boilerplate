@@ -3,7 +3,7 @@
 progress: 60%
 
 <p align="center">
-<img src="https://i.imgur.com/rnpZd0l.png">
+<img src="https://i.imgur.com/o5GX0qV.png">
 </p>
 
 ## Features
