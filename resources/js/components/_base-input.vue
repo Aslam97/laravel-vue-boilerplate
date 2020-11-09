@@ -1,6 +1,5 @@
 <script>
 export default {
-
   props: {
     value: {
       type: [String, Number],
@@ -51,6 +50,7 @@ export default {
   data: () => ({
     currentValue: '',
   }),
+
   computed: {
     isRequired() {
       if (this.rules.includes('required')) return true;
@@ -84,16 +84,9 @@ export default {
     :name="name"
     :vid="vid"
   >
-    <label
-      v-if="label"
-      :for="name"
-      :class="$style.formLabel"
-    >
+    <label v-if="label" :for="name" :class="$style.formLabel">
       {{ name }}
-      <span
-        v-if="isRequired"
-        :class="$style.formRequired"
-      >*</span>
+      <span v-if="isRequired" :class="$style.formRequired">*</span>
     </label>
 
     <input
@@ -104,7 +97,7 @@ export default {
       :placeholder="placeholder"
       :autocomplete="autocomplete"
       @input="handleInput"
-    >
+    />
     <span :class="$style.invalidFeedback">{{ errors[0] }}</span>
 
     <small :class="$style.formHelp">
