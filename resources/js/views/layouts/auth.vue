@@ -1,5 +1,8 @@
 <script>
-export default {};
+import LangButton from '@components/lang-button.vue';
+export default {
+  components: { LangButton },
+};
 </script>
 
 <template>
@@ -18,6 +21,8 @@ export default {};
     >
       <slot />
     </div>
+
+    <LangButton />
   </div>
 </template>
 

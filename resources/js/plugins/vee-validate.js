@@ -5,7 +5,7 @@ import {
   extend,
   localize,
 } from 'vee-validate';
-import store from '@/store';
+import store from '@store';
 import * as rules from 'vee-validate/dist/rules';
 
 Vue.component('ValidationObserver', ValidationObserver);

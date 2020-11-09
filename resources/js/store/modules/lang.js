@@ -20,7 +20,7 @@ export const mutations = {
 };
 
 export const actions = {
-  clientLocale({ commit, dispatch }, { locale }) {
+  locale({ commit, dispatch }, { locale }) {
     commit('setLocale', { locale });
     dispatch('serverLocale', { locale });
     dispatch('veeValidateLocale', locale);
@@ -31,7 +31,7 @@ export const actions = {
   serverLocale({}, payload) {
     return new Promise((resolve, reject) => {
       axios
-        .patch('/v2/locale', payload)
+        .patch('api/locale', payload)
         .then(({ data }) => resolve(data))
         .catch(({ response }) => reject(response));
     });

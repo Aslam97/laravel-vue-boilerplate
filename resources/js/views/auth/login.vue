@@ -33,7 +33,7 @@ export default {
         $style['mt-6'],
         $style['mb-6'],
         $style['px-6'],
-        $style['py-4'],
+        $style['py-6'],
         $style['bg-white'],
         $style['rounded-lg'],
         $style['shadow-md'],
