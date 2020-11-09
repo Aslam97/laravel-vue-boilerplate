@@ -18,15 +18,18 @@ export default {
     role="progressbar"
     tabindex="0"
   >
-    <div :class="$style.bullet" :style="{ backgroundColor: bgColor }"></div>
+    <div
+      :class="$style.bullet"
+      :style="{ backgroundColor: bgColor }"
+    />
     <div
       :class="[$style.bullet, $style.animationDelay]"
       :style="{ backgroundColor: bgColor }"
-    ></div>
+    />
     <div
       :class="[$style.bullet, $style.animationDelayNext]"
       :style="{ backgroundColor: bgColor }"
-    ></div>
+    />
   </div>
 </template>
 

@@ -1,5 +1,8 @@
 <template>
-  <button :class="[$style.btn, $style.btnBlue]" v-on="$listeners">
+  <button
+    :class="[$style.btn, $style.btnBlue]"
+    v-on="$listeners"
+  >
     <slot />
   </button>
 </template>

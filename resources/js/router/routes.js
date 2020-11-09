@@ -1,8 +1,21 @@
 export default [
   {
+    path: '/',
+    name: 'home',
+    component: loadView('index.vue'),
+    meta: {
+      authRequired: true,
+    },
+  },
+  {
     path: '/login',
     name: 'login',
     component: loadView('auth/login.vue'),
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: loadView('auth/register.vue'),
   },
   {
     path: '/404',
@@ -19,5 +32,11 @@ export default [
 ];
 
 function loadView(path) {
-  return () => import(`@views/${path}`);
+  return () =>
+    import(
+      /* webpackChunkName: "[request]" */
+      // /* webpackPrefetch: true */
+      // /* webpackPreload: true */
+      `@views/${path}`
+    );
 }

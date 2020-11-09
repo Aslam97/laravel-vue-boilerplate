@@ -4,7 +4,9 @@ export const state = {
   me: '',
 };
 
-export const getters = {};
+export const getters = {
+  me: state => state.me,
+};
 
 export const mutations = {
   setMe(state, payload) {
@@ -13,12 +15,15 @@ export const mutations = {
 };
 
 export const actions = {
-  me() {
-    axios
-      .get('/api/me')
-      .then(result => {
-        console.log(result);
-      })
-      .catch(err => {});
+  me({ commit }) {
+    return new Promise((resolve, reject) => {
+      axios
+        .get('/api/me')
+        .then(({ data }) => {
+          commit('setMe', data);
+          resolve(data);
+        })
+        .catch(({ response }) => reject(response));
+    });
   },
 };

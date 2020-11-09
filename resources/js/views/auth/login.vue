@@ -12,31 +12,32 @@ export default {
     email: '',
     password: '',
     remember: '',
-    wait: false,
+    tryingToLogIn: false,
   }),
 
   methods: {
     onSubmit() {
       this.$store.dispatch('auth/csrf').then(() => {
-        this.wait = true;
+        this.tryingToLogIn = true;
 
         this.$store
           .dispatch('auth/login', this.$data)
-          .then(result => {
-            this.wait = false;
+          .then(() => {
+            this.tryingToLogIn = false;
+
+            // Redirect to the originally requested page, or to the home page
+            this.$router.push(
+              this.$route.query.redirectFrom || { name: 'home' }
+            );
           })
           .catch(({ data }) => {
             const { errors } = data;
 
-            this.wait = false;
+            this.tryingToLogIn = false;
             this.$refs.formLogin.setErrors(errors);
           });
       });
     },
-  },
-
-  mounted() {
-    this.$store.dispatch('user/me');
   },
 };
 </script>
@@ -85,11 +86,11 @@ export default {
         <label :class="[$style.block, $style['mt-4']]">
           <div :class="[$style.flex, $style['items-center']]">
             <input
-              :class="$style.formCheckbox"
               v-model="remember"
+              :class="$style.formCheckbox"
               type="checkbox"
               name="remember"
-            />
+            >
             <span :class="[$style['ml-2'], $style.formLabel]">{{
               $t('auth.login.remember_me')
             }}</span>
@@ -111,8 +112,14 @@ export default {
             {{ $t('auth.login.forgot_password') }}
           </BaseLink>
 
-          <BaseButton :class="$style['ml-4']" :disabled="wait">
-            <BaseSpinner v-if="wait" bgColor="#1a202c" />
+          <BaseButton
+            :class="$style['ml-4']"
+            :disabled="tryingToLogIn"
+          >
+            <BaseSpinner
+              v-if="tryingToLogIn"
+              bg-color="#1a202c"
+            />
             <span v-else>{{ $t('auth.login.submit') }}</span>
           </BaseButton>
         </div>
@@ -121,7 +128,10 @@ export default {
 
     <div :class="[$style['text-center'], $style['text-muted']]">
       {{ $t('auth.login.register_placeholder') }}
-      <BaseLink :class="$style['text-blue-700']" :to="{ name: 'register' }">
+      <BaseLink
+        :class="$style['text-blue-700']"
+        :to="{ name: 'register' }"
+      >
         {{ $t('auth.login.register') }}
       </BaseLink>
     </div>

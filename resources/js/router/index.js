@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueMeta from 'vue-meta';
 import NProgress from 'nprogress';
+import store from '@store';
 import routes from './routes';
 
 Vue.use(VueRouter);
@@ -21,10 +22,34 @@ const router = new VueRouter({
   scrollBehavior,
 });
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((routeTo, routeFrom, next) => {
   NProgress.start();
 
-  next();
+  // Check if auth is required on this route
+  // (including nested routes).
+  const authRequired = routeTo.matched.some(route => route.meta.authRequired);
+
+  // If auth isn't required for the route, just continue.
+  if (!authRequired) return next();
+
+  // If auth is required and the user is logged in...
+  if (store.getters['auth/loggedIn']) {
+    // Validate the local user token...
+    return store.dispatch('auth/validate').then(validUser => {
+      // Then continue if the token still represents a valid user,
+      // otherwise redirect to login.
+      validUser ? next() : redirectToLogin();
+    });
+  }
+
+  // If auth is required and the user is NOT currently logged in,
+  // redirect to login.
+  redirectToLogin();
+
+  function redirectToLogin() {
+    // Pass the original route to the login component
+    next({ name: 'login', query: { redirectFrom: routeTo.fullPath } });
+  }
 });
 
 router.afterEach(() => {

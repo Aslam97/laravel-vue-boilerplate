@@ -9,7 +9,7 @@ axios.interceptors.request.use(
 );
 
 axios.interceptors.response.use(
-  ({ data }) => data,
+  response => response,
   error => {
     // config
 
