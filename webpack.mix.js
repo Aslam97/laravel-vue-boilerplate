@@ -13,7 +13,9 @@ mix
   .vueCssModules({
     oneOf: true,
     preProcessor: { scss: true },
-    ...(mix.inProduction() ? { localIdentNameType: 'discord' } : {}),
+    ...(mix.inProduction()
+      ? { cssLoaderOptions: { localIdentName: 'css-[hash:base64:5]' } }
+      : {}),
   });
 
 if (process.MIX_ESLINT) {
