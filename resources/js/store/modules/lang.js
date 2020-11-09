@@ -28,7 +28,7 @@ export const actions = {
     localStorage.setItem('locale', locale);
   },
 
-  serverLocale(payload) {
+  serverLocale(_, payload) {
     return new Promise((resolve, reject) => {
       axios
         .patch('/api/locale', payload)
@@ -37,7 +37,7 @@ export const actions = {
     });
   },
 
-  veeValidateLocale(code) {
+  veeValidateLocale(_, code) {
     return import(`vee-validate/dist/locale/${code}.json`).then(locale => {
       localize(code, locale);
     });
