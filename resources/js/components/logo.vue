@@ -1,8 +1,8 @@
 <template functional>
   <img
     :src="require('@assets/images/logo.svg')"
-    width="232"
-    height="80"
+    width="200"
+    height="70"
     alt="Logo"
   />
 </template>

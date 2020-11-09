@@ -39,6 +39,8 @@ export default {
     <a role="button" :class="$style.btnFloating" @click="active = !active">
       <img
         :src="require(`@assets/images/flags/${locale}-circle.svg`)"
+        height="36"
+        width="36"
         :alt="locale"
       />
     </a>
@@ -53,6 +55,8 @@ export default {
             :src="
               require(`@assets/images/flags/${filterNotActiveLang}-circle.svg`)
             "
+            height="36"
+            width="36"
             :alt="filterNotActiveLang"
           />
         </a>
@@ -81,7 +85,7 @@ export default {
   }
 
   &.directionBottom ul li {
-    margin: 15px 0 0 0;
+    margin: 6px 0 0 0;
   }
 
   &.active ul {
