@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import router from '@router';
 import store from '@store';
-import i18n from '@plugins/vue-i18n';
+import i18n from '@utils/vue-i18n';
 import App from './app.vue';
 
 // Globally register all `_base`-prefixed components
