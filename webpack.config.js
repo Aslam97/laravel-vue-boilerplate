@@ -34,6 +34,9 @@ module.exports = {
   ],
   output: {
     filename: '[name].js',
-    chunkFilename: 'js/chunks/[contenthash:8].chunk.js',
+    chunkFilename:
+      process.env.NODE_ENV === 'production'
+        ? 'js/chunks/[contenthash:8].chunk.js'
+        : 'js/chunks/[name].chunk.js',
   },
 };
