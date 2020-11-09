@@ -2,6 +2,10 @@
 
 progress: 60%
 
+<p align="center">
+<img src="https://i.imgur.com/rnpZd0l.png">
+</p>
+
 ## Features
 
 - Laravel 8
