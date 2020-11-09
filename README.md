@@ -5,7 +5,8 @@ progress: 60%
 ## Features
 
 - Laravel 8
-- Extract + dynamic import
+- Night mode
+- Integrate vee-validate and vue-i18n
 - CSS Module (support pre-processor)
 - Sanctum
 
