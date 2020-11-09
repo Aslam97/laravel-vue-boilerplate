@@ -93,3 +93,23 @@
 .ml-2 {
   margin-left: 0.5rem;
 }
+
+.mw-96 {
+  max-width: 28rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.text-blue-700 {
+  color: #2b6cb0;
+
+  &:hover {
+    color: #2c5282;
+  }
+}

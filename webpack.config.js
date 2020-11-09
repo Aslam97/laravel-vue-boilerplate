@@ -11,6 +11,7 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       '@': path.join(__dirname, './resources/js'),
+      '@assets': path.join(__dirname, './resources/js/assets'),
       '@components': path.join(__dirname, './resources/js/components'),
       '@plugins': path.join(__dirname, './resources/js/plugins'),
       '@router': path.join(__dirname, './resources/js/router'),

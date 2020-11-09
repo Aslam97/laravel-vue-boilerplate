@@ -1,11 +1,12 @@
 <script>
 import AuthLayout from '@layouts/auth.vue';
+import Logo from '@components/logo.vue';
 export default {
   meta: {
     title: 'Login',
   },
 
-  components: { AuthLayout },
+  components: { AuthLayout, Logo },
 
   data: () => ({
     email: '',
@@ -21,13 +22,16 @@ export default {
 
 <template>
   <AuthLayout>
+    <Logo />
     <ValidationObserver
       ref="form"
       v-slot="{ handleSubmit }"
       tag="div"
       :class="[
-        $style['w-96'],
+        $style['w-full'],
+        $style['mw-96'],
         $style['mt-6'],
+        $style['mb-6'],
         $style['px-6'],
         $style['py-4'],
         $style['bg-white'],
@@ -40,7 +44,7 @@ export default {
         <BaseInput
           v-model="email"
           type="email"
-          name="Email"
+          :name="$t('auth.login.email')"
           rules="required|email"
           vid="email"
           :label="true"
@@ -51,7 +55,7 @@ export default {
         <BaseInput
           v-model="password"
           type="password"
-          name="Password"
+          :name="$t('auth.login.password')"
           rules="required"
           vid="password"
           :label="true"
@@ -63,8 +67,10 @@ export default {
               :class="$style.formCheckbox"
               type="checkbox"
               name="remember"
-            >
-            <span :class="[$style['ml-2'], $style.formLabel]">Remember Me</span>
+            />
+            <span :class="[$style['ml-2'], $style.formLabel]">{{
+              $t('auth.login.remember_me')
+            }}</span>
           </div>
         </label>
 
@@ -77,18 +83,25 @@ export default {
           ]"
         >
           <BaseLink
-            :class="[$style['text-sm'], $style['text-gray-600']]"
+            :class="[$style['text-sm'], $style['text-blue-700']]"
             :to="{ name: 'forgot-password' }"
           >
             {{ $t('auth.login.forgot_password') }}
           </BaseLink>
 
           <BaseButton :class="$style['ml-4']">
-            {{ $t('auth.login.title') }}
+            {{ $t('auth.login.submit') }}
           </BaseButton>
         </div>
       </form>
     </ValidationObserver>
+
+    <div :class="[$style['text-center'], $style['text-muted']]">
+      {{ $t('auth.login.register_placeholder') }}
+      <BaseLink :class="$style['text-blue-700']" :to="{ name: 'register' }">
+        {{ $t('auth.login.register') }}
+      </BaseLink>
+    </div>
   </AuthLayout>
 </template>
 

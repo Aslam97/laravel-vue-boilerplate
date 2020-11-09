@@ -31,7 +31,7 @@ export default {};
 }
 
 html {
-  font-size: 16px;
+  font-size: 14px;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -45,5 +45,10 @@ html {
   word-break: normal;
   -moz-tab-size: 4;
   tab-size: 4;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
 }
 </style>
