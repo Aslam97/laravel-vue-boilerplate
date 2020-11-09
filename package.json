@@ -4,6 +4,10 @@
   "author": "Aslam <iupin5212@gmail.com>",
   "license": "MIT",
   "private": true,
+  "version": "1.0.0",
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "dev": "npm run development",
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
@@ -13,7 +17,8 @@
     "prod": "npm run production",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js",
     "report": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --report --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "lint": "eslint --fix --ext .js,.vue resources/js"
+    "lint": "eslint --fix --ext .js,.vue resources/js",
+    "postinstall": "npm run prod"
   },
   "devDependencies": {
     "axios": "^0.19",
