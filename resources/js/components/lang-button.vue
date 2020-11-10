@@ -33,13 +33,17 @@ export default {
       { [$style.active]: active },
     ]"
   >
-    <a role="button" :class="$style.btnFloating" @click="active = !active">
+    <a
+      role="button"
+      :class="$style.btnFloating"
+      @click="active = !active"
+    >
       <img
         :src="require(`@assets/images/flags/${locale}-circle.svg`)"
         height="36"
         width="36"
         :alt="locale"
-      />
+      >
     </a>
     <ul :class="$style.resetUL">
       <li>
@@ -55,7 +59,7 @@ export default {
             height="36"
             width="36"
             :alt="filterNotActiveLang"
-          />
+          >
         </a>
       </li>
     </ul>

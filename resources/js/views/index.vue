@@ -10,9 +10,13 @@ export default {
     ...mapGetters('user', ['me']),
   },
 
+  mounted() {
+    this.$store.dispatch('user/me');
+  },
+
   methods: {
     logout() {
-      this.$store.dispatch('auth/csrf').then(_ => {
+      this.$store.dispatch('auth/csrf').then(() => {
         this.$store.dispatch('auth/logout').then(response => {
           // just to make sure if the server locale remain the same as the client locale
           const { locale } = response;
@@ -26,10 +30,6 @@ export default {
       });
     },
   },
-
-  mounted() {
-    this.$store.dispatch('user/me');
-  },
 };
 </script>
 
@@ -39,7 +39,9 @@ export default {
       {{ me }}
     </pre>
 
-    <BaseButton @click="logout()">Logout</BaseButton>
+    <BaseButton @click="logout()">
+      Logout
+    </BaseButton>
   </Layout>
 </template>
 
