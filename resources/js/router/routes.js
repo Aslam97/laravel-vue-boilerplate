@@ -1,3 +1,5 @@
+import store from '@store';
+
 export default [
   {
     path: '/',
@@ -11,6 +13,18 @@ export default [
     path: '/login',
     name: 'login',
     component: loadView('auth/login.vue'),
+    meta: {
+      beforeResolve(routeTo, routeFrom, next) {
+        console.log('test');
+        // by default if its come from server it will automatically redirect to home because Auth::routes();
+        // this handle only applies if it comes from vue-router
+        if (store.getters['auth/loggedIn']) {
+          next({ name: 'home' });
+        } else {
+          next();
+        }
+      },
+    },
   },
   {
     path: '/register',

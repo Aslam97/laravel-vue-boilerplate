@@ -42,6 +42,8 @@ export default {
     <BaseButton @click="logout()">
       Logout
     </BaseButton>
+
+    <BaseLink :to="{ name: 'login' }">Login</BaseLink>
   </Layout>
 </template>
 
