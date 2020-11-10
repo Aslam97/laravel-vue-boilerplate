@@ -4,10 +4,10 @@ export default async ({ routeTo, next }) => {
   // If auth is required and the user is logged in...
   if (store.getters['auth/loggedIn']) {
     // Validate the local loggedIn...
-    return store.dispatch('auth/validate').then(validUser => {
+    return store.dispatch('auth/validate').then(({ data }) => {
       // Then continue if the loggedIn still represents a valid user,
       // otherwise redirect to login.
-      validUser ? next() : redirectToLogin();
+      data ? next() : redirectToLogin();
     });
   }
 

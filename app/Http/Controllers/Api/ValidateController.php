@@ -11,8 +11,9 @@ class ValidateController extends Controller
 {
     public function index(Request $request)
     {
-        return new JsonResponse(
-            !is_null($request->user()), Response::HTTP_OK
-        );
+        return [
+            true => new JsonResponse(true, Response::HTTP_OK),
+            false => new JsonResponse(false, Response::HTTP_UNAUTHORIZED),
+        ][!is_null($request->user())];
     }
 }

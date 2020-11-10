@@ -6,7 +6,7 @@ export const state = {
 
 export const getters = {
   loggedIn(state) {
-    return !!state.loggedIn;
+    return state.loggedIn === 'true' ? true : false;
   },
 };
 
@@ -56,20 +56,13 @@ export const actions = {
 
     return axios
       .get('/api/validate')
-      .then(response => {
+      .then(({ data }) => {
         commit('setLoggedIn', 'true');
-
-        const { data } = response;
         return data;
       })
-      .catch(error => {
-        if (error.response && error.response.status === 401) {
-          commit('setLoggedIn', null);
-        } else {
-          console.warn(error);
-        }
-
-        return null;
+      .catch(({ response }) => {
+        commit('setLoggedIn', 'false');
+        return response;
       });
   },
 };

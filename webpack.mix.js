@@ -14,7 +14,7 @@ mix
     oneOf: true,
     preProcessor: { scss: true },
     ...(mix.inProduction()
-      ? { cssLoaderOptions: { localIdentName: 'css-[hash:base64:5]' } }
+      ? { cssLoaderOptions: { localIdentName: 'css-[hash:base64:7]' } }
       : {}),
   });
 
