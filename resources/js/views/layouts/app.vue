@@ -3,13 +3,13 @@ export default {};
 </script>
 
 <template>
-  <div :class="$style.container">
+  <div
+    :class="[$style.antialiased, $style['font-sans'], $style['text-gray-900']]"
+  >
     <slot />
   </div>
 </template>
 
 <style lang="scss" module>
-.container {
-  margin: 0 auto;
-}
+@import '@design/_utilities.scss';
 </style>

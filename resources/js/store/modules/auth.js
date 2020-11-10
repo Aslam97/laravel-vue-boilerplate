@@ -22,7 +22,7 @@ export const actions = {
     return new Promise((resolve, reject) => {
       axios
         .get('/api/sanctum/csrf-cookie')
-        .then(result => resolve(result))
+        .then(({ data }) => resolve(data))
         .catch(({ response }) => reject(response));
     });
   },
@@ -31,9 +31,21 @@ export const actions = {
     return new Promise((resolve, reject) => {
       axios
         .post('/login', payload)
-        .then(result => {
+        .then(({ data }) => {
           commit('setLoggedIn', 'true');
-          resolve(result);
+          resolve(data);
+        })
+        .catch(({ response }) => reject(response));
+    });
+  },
+
+  logout({ commit }) {
+    return new Promise((resolve, reject) => {
+      axios
+        .post('/logout')
+        .then(({ data }) => {
+          commit('setLoggedIn', 'false');
+          resolve(data);
         })
         .catch(({ response }) => reject(response));
     });

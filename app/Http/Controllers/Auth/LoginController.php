@@ -73,9 +73,9 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
-        $this->guard()->logout();
+        $locale = $request->session()->get('locale') ?: app()->getLocale();
 
-        $locale = session('locale');
+        $this->guard()->logout();
 
         $request->session()->invalidate();
 
@@ -83,11 +83,24 @@ class LoginController extends Controller
 
         $this->setLocale($locale);
 
-        if ($response = $this->loggedOut($request)) {
+        if ($response = $this->loggedOut($request, $locale)) {
             return $response;
         }
 
-        return $request->wantsJson() ? new JsonResponse([], 204) : redirect('/');
+        return $request->wantsJson() ? new JsonResponse([], Response::HTTP_NO_CONTENT) : redirect('/');
+    }
+
+    /**
+     * The user has logged out of the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return mixed
+     */
+    protected function loggedOut(Request $request, $locale)
+    {
+        if ($request->wantsJson()) {
+            return new JsonResponse(['locale' => $locale], Response::HTTP_OK);
+        }
     }
 
     /**
@@ -99,6 +112,6 @@ class LoginController extends Controller
     public function setLocale($locale)
     {
         app()->setLocale($locale);
-        session(['locale', $locale]);
+        session(['locale' => $locale]);
     }
 }

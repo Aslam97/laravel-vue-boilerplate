@@ -1,6 +1,6 @@
 <script>
 import { mapGetters } from 'vuex';
-import { loadMessages } from '@utils/vue-i18n';
+import setLocale from '@utils/setLocale.js';
 
 export default {
   data: () => ({
@@ -16,13 +16,10 @@ export default {
   },
 
   methods: {
-    setLocale(locale) {
+    loadLocale(locale) {
       this.active = false;
 
-      if (this.$i18n.locale !== locale) {
-        loadMessages(locale);
-        this.$store.dispatch('lang/locale', { locale });
-      }
+      setLocale(locale);
     },
   },
 };
@@ -36,24 +33,20 @@ export default {
       { [$style.active]: active },
     ]"
   >
-    <a
-      role="button"
-      :class="$style.btnFloating"
-      @click="active = !active"
-    >
+    <a role="button" :class="$style.btnFloating" @click="active = !active">
       <img
         :src="require(`@assets/images/flags/${locale}-circle.svg`)"
         height="36"
         width="36"
         :alt="locale"
-      >
+      />
     </a>
     <ul :class="$style.resetUL">
       <li>
         <a
           role="button"
           :class="$style.btnFloating"
-          @click="setLocale(filterNotActiveLang)"
+          @click="loadLocale(filterNotActiveLang)"
         >
           <img
             :src="
@@ -62,7 +55,7 @@ export default {
             height="36"
             width="36"
             :alt="filterNotActiveLang"
-          >
+          />
         </a>
       </li>
     </ul>
