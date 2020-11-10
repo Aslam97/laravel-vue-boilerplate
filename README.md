@@ -30,6 +30,11 @@ composer install
 npm install
 ```
 
+## Alternatives
+
+- [cretueusebiu/laravel-vue-spa](https://github.com/cretueusebiu/laravel-vue-spa) Authentication with JWT. implement Socialite
+- [alefesouza/laravel-vue-boilerplate](https://github.com/santigarcor/laratrust) Laravel 6. Pug, Typescript
+
 **This isn't exactly what I'm looking for. Where can I find other boilerplates and similar projects?**
 
 See the [awesome-vue](https://github.com/vuejs/awesome-vue#scaffold) repo for other great projects in the Vue ecosystem.
