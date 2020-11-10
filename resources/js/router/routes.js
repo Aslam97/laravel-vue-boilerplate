@@ -1,4 +1,4 @@
-import store from '@store';
+import guest from '@middleware/guest';
 
 export default [
   {
@@ -6,7 +6,7 @@ export default [
     name: 'home',
     component: loadView('index.vue'),
     meta: {
-      authRequired: true,
+      middleware: 'auth',
     },
   },
   {
@@ -14,22 +14,16 @@ export default [
     name: 'login',
     component: loadView('auth/login.vue'),
     meta: {
-      beforeResolve(routeTo, routeFrom, next) {
-        console.log('test');
-        // by default if its come from server it will automatically redirect to home because Auth::routes();
-        // this handle only applies if it comes from vue-router
-        if (store.getters['auth/loggedIn']) {
-          next({ name: 'home' });
-        } else {
-          next();
-        }
-      },
+      middleware: ['guest'],
     },
   },
   {
     path: '/register',
     name: 'register',
     component: loadView('auth/register.vue'),
+    meta: {
+      middleware: guest,
+    },
   },
   {
     path: '/404',

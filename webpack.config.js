@@ -17,6 +17,7 @@ module.exports = {
       '@store': path.join(__dirname, './resources/js/store'),
       '@design': path.join(__dirname, './resources/js/design'),
       '@lang': path.join(__dirname, './resources/js/lang'),
+      '@middleware': path.join(__dirname, './resources/js/middleware'),
       '@utils': path.join(__dirname, './resources/js/utils'),
       '@views': path.join(__dirname, './resources/js/views'),
       '@layouts': path.join(__dirname, './resources/js/views/layouts'),

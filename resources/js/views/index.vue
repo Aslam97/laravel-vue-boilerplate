@@ -43,7 +43,9 @@ export default {
       Logout
     </BaseButton>
 
-    <BaseLink :to="{ name: 'login' }">Login</BaseLink>
+    <BaseLink :to="{ name: 'login' }">
+      Login
+    </BaseLink>
   </Layout>
 </template>
 
