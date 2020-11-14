@@ -1,17 +1,19 @@
 # Laravel Vue Boilerplace
 
-progress: 60%
+|                Light                 |                 Dark                 |
+| :----------------------------------: | :----------------------------------: |
+| ![](https://i.imgur.com/b8anAkR.png) | ![](https://i.imgur.com/L3HXQk5.png) |
 
-<p align="center">
-<img src="https://i.imgur.com/VD90kDf.png">
-</p>
+### Lighthouse Score
+
+<img src="https://i.imgur.com/W77JWwM.png"/>
 
 ## Features
 
 - Laravel 8
 - Night mode
 - Integrate vee-validate and vue-i18n
-- CSS Module (support pre-processor)
+- CSS Module
 - Sanctum
 
 ## Getting started
