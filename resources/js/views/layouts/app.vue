@@ -6,7 +6,10 @@ export default {};
   <div
     :class="[$style.antialiased, $style['font-sans'], $style['text-gray-900']]"
   >
-    <transition name="page" mode="out-in">
+    <transition
+      name="page"
+      mode="out-in"
+    >
       <slot>
         <router-view :key="$route.fullPath" />
       </slot>

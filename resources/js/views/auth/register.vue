@@ -70,37 +70,36 @@ export default {
     >
       <form @submit.prevent="handleSubmit(onSubmit)">
         <BaseInput
+          v-model="name"
           :name="$t('auth.register.name')"
           rules="required|alpha_spaces"
-          v-model="name"
           :label="true"
           vid="name"
         />
 
         <BaseInput
+          v-model="email"
           :name="$t('auth.register.email')"
           rules="required|email"
-          v-model="email"
           :label="true"
           vid="email"
         />
 
         <BaseInput
+          v-model="password"
           :name="$t('auth.register.password')"
           rules="required|min:8"
           type="password"
-          v-model="password"
           :label="true"
           vid="password"
-        >
-        </BaseInput>
+        />
 
         <BaseInput
+          v-model="password_confirmation"
           :name="$t('auth.register.password_confirmation')"
           rules="required|confirmed:password"
           type="password"
           autocomplete="new-password"
-          v-model="password_confirmation"
           :label="true"
           vid="password_confirmation"
         />
@@ -113,8 +112,14 @@ export default {
             $style['mt-4'],
           ]"
         >
-          <BaseButton :class="$style['ml-4']" :disabled="tryingToRegister">
-            <BaseSpinner v-if="tryingToRegister" bg-color="#1a202c" />
+          <BaseButton
+            :class="$style['ml-4']"
+            :disabled="tryingToRegister"
+          >
+            <BaseSpinner
+              v-if="tryingToRegister"
+              bg-color="#1a202c"
+            />
             <span v-else>{{ $t('auth.register.submit') }}</span>
           </BaseButton>
         </div>
@@ -122,7 +127,10 @@ export default {
     </ValidationObserver>
     <div :class="[$style['text-center'], $style['text-muted']]">
       {{ $t('auth.register.login_placeholder') }}
-      <BaseLink :class="$style['text-blue-700']" :to="{ name: 'login' }">
+      <BaseLink
+        :class="$style['text-blue-700']"
+        :to="{ name: 'login' }"
+      >
         {{ $t('auth.register.login') }}
       </BaseLink>
     </div>

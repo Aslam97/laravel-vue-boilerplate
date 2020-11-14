@@ -21,7 +21,10 @@ export default {
       ]"
     >
       <Logo />
-      <transition name="page" mode="out-in">
+      <transition
+        name="page"
+        mode="out-in"
+      >
         <slot>
           <router-view :key="$route.fullPath" />
         </slot>

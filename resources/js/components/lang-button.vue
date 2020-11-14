@@ -39,7 +39,7 @@ export default {
       @click="active = !active"
     >
       <img
-        :src="require(`@assets/images/flags/${locale}-circle.svg`)"
+        v-lazy="require(`@assets/images/flags/${locale}-circle.svg`)"
         height="36"
         width="36"
         :alt="locale"
@@ -53,7 +53,7 @@ export default {
           @click="loadLocale(filterNotActiveLang)"
         >
           <img
-            :src="
+            v-lazy="
               require(`@assets/images/flags/${filterNotActiveLang}-circle.svg`)
             "
             height="36"

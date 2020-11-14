@@ -11,17 +11,17 @@ app()->getLocale(), 'locales' => config('app.locales'), ]; @endphp
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-    <title>Laravel Vue SPA</title>
+    <title>Lavuject</title>
 
     <script>
       window.__init__ = @json($config);
     </script>
-
-    <script src="{{ mix('js/manifest.js') }}" defer></script>
-    <script src="{{ mix('js/vendor.js') }}" defer></script>
-    <script src="{{ mix('js/app.js') }}" defer></script>
   </head>
   <body>
     <div id="app"></div>
+
+    <script src="{{ mix('js/manifest.js') }}"></script>
+    <script src="{{ mix('js/vendor.js') }}"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
   </body>
 </html>
