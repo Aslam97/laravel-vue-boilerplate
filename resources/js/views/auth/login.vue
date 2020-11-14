@@ -1,7 +1,9 @@
 <script>
 export default {
-  meta: {
-    title: 'Login',
+  meta() {
+    return {
+      title: this.$t('auth.login.title'),
+    };
   },
 
   data: () => ({
