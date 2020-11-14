@@ -23,6 +23,7 @@
   "devDependencies": {
     "axios": "^0.19",
     "bootstrap": "^4.0.0",
+    "compression-webpack-plugin": "^6.1.1",
     "cross-env": "^7.0",
     "eslint": "^7.13.0",
     "eslint-loader": "^4.0.2",
@@ -51,6 +52,7 @@
     "vue-meta": "^2.4.0",
     "vue-router": "^3.4.9",
     "vuex": "^3.5.1",
-    "webpack-bundle-analyzer": "^4.1.0"
+    "webpack-bundle-analyzer": "^4.1.0",
+    "zlib": "^1.0.5"
   }
 }
