@@ -1,4 +1,15 @@
-import guest from '@middleware/guest';
+function loadView(path) {
+  return () =>
+    import(
+      /* webpackChunkName: "[request]" */
+      // /* webpackPrefetch: true */
+      // /* webpackPreload: true */
+      `@views/${path}`
+    );
+}
+
+import AppLayout from '@layouts/app.vue';
+import AuthLayout from '@layouts/auth.vue';
 
 export default [
   {
@@ -6,7 +17,8 @@ export default [
     name: 'home',
     component: loadView('index.vue'),
     meta: {
-      middleware: 'auth',
+      layout: AppLayout,
+      middleware: ['auth'],
     },
   },
   {
@@ -14,6 +26,7 @@ export default [
     name: 'login',
     component: loadView('auth/login.vue'),
     meta: {
+      layout: AuthLayout,
       middleware: ['guest'],
     },
   },
@@ -22,7 +35,8 @@ export default [
     name: 'register',
     component: loadView('auth/register.vue'),
     meta: {
-      middleware: guest,
+      layout: AuthLayout,
+      middleware: ['guest'],
     },
   },
   {
@@ -38,13 +52,3 @@ export default [
     redirect: '404',
   },
 ];
-
-function loadView(path) {
-  return () =>
-    import(
-      /* webpackChunkName: "[request]" */
-      // /* webpackPrefetch: true */
-      // /* webpackPreload: true */
-      `@views/${path}`
-    );
-}

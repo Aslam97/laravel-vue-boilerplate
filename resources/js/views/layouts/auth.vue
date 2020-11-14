@@ -1,7 +1,8 @@
 <script>
+import Logo from '@components/logo.vue';
 import LangButton from '@components/lang-button.vue';
 export default {
-  components: { LangButton },
+  components: { LangButton, Logo },
 };
 </script>
 
@@ -19,7 +20,12 @@ export default {
         $style['bg-gray-200'],
       ]"
     >
-      <slot />
+      <Logo />
+      <transition name="page" mode="out-in">
+        <slot>
+          <router-view :key="$route.fullPath" />
+        </slot>
+      </transition>
     </div>
 
     <LangButton />

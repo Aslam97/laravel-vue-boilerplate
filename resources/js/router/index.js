@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 import VueMeta from 'vue-meta';
 import NProgress from 'nprogress';
 import routes from './routes';
-import { nextFactory, resolveMiddleware } from '@utils/middleware';
+import { resolveMiddleware, nextFactory, scrollBehavior } from '@utils/router';
 
 Vue.use(VueRouter);
 Vue.use(VueMeta, {
@@ -51,15 +51,5 @@ router.beforeEach((routeTo, routeFrom, next) => {
 router.afterEach(() => {
   NProgress.done();
 });
-
-// Simulate native-like scroll behavior when navigating to a new
-// route and using back/forward buttons.
-function scrollBehavior(to, from, savedPosition) {
-  if (savedPosition) {
-    return savedPosition;
-  }
-
-  return { x: 0, y: 9 };
-}
 
 export default router;

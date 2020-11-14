@@ -9,6 +9,16 @@
       "submit": "Masuk",
       "register_placeholder": "Belum memiliki akun?",
       "register": "Daftar"
+    },
+    "register": {
+      "title": "Daftar",
+      "name": "Nama",
+      "email": "Email",
+      "password": "Kata Sandi",
+      "password_confirmation": "Konfirmasi Kata Sandi",
+      "submit": "Daftar",
+      "login_placeholder": "Sudah memiliki akun?",
+      "login": "Masuk"
     }
   }
 }

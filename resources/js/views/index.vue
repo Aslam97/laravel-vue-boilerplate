@@ -1,11 +1,8 @@
 <script>
 import { mapGetters } from 'vuex';
-import Layout from '@layouts/app.vue';
 import setLocale from '@utils/setLocale.js';
 
 export default {
-  components: { Layout },
-
   computed: {
     ...mapGetters('user', ['me']),
   },
@@ -34,7 +31,7 @@ export default {
 </script>
 
 <template>
-  <Layout>
+  <div>
     <pre>
       {{ me }}
     </pre>
@@ -46,7 +43,7 @@ export default {
     <BaseLink :to="{ name: 'login' }">
       Login
     </BaseLink>
-  </Layout>
+  </div>
 </template>
 
 <style lang="scss" module></style>

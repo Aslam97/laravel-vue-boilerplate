@@ -1,3 +1,5 @@
+import NProgress from 'nprogress';
+
 /**
  *
  *
@@ -11,6 +13,7 @@ function nextFactory(context, middlewareArr, index) {
 
   // if middleware undefined then next
   if (!subsequentMiddleware) {
+    NProgress.done();
     return context.next;
   }
 
@@ -21,8 +24,8 @@ function nextFactory(context, middlewareArr, index) {
     subsequentMiddleware({ ...context, next: nextMiddleware });
   };
 }
+
 /**
- *
  *
  * @param {*} middlewareArr
  * @returns
@@ -35,4 +38,25 @@ function resolveMiddleware(middlewareArr) {
   });
 }
 
-export { nextFactory, resolveMiddleware };
+// Simulate native-like scroll behavior when navigating to a new
+// route and using back/forward buttons.
+function scrollBehavior(to, from, savedPosition) {
+  if (savedPosition) {
+    return savedPosition;
+  }
+
+  if (to.hash) {
+    return {
+      selector: to.hash,
+      behavior: 'smooth',
+    };
+  }
+
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({ x: 0, y: 0 });
+    }, 190);
+  });
+}
+
+export { nextFactory, resolveMiddleware, scrollBehavior };

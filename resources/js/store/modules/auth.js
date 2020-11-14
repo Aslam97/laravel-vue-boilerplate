@@ -6,6 +6,7 @@ export const state = {
 
 export const getters = {
   loggedIn(state) {
+    // !!"false" === true
     return state.loggedIn === 'true' ? true : false;
   },
 };
@@ -39,6 +40,18 @@ export const actions = {
     });
   },
 
+  register({ commit }, payload) {
+    return new Promise((resolve, reject) => {
+      axios
+        .post('/register', payload)
+        .then(({ data }) => {
+          commit('setLoggedIn', 'true');
+          resolve(data);
+        })
+        .catch(({ response }) => reject(response));
+    });
+  },
+
   logout({ commit }) {
     return new Promise((resolve, reject) => {
       axios
@@ -51,9 +64,7 @@ export const actions = {
     });
   },
 
-  validate({ commit, state }) {
-    if (!state.loggedIn) return Promise.resolve(null);
-
+  validate({ commit }) {
     return axios
       .get('/api/validate')
       .then(({ data }) => {

@@ -1,12 +1,8 @@
 <script>
-import AuthLayout from '@layouts/auth.vue';
-import Logo from '@components/logo.vue';
 export default {
   meta: {
     title: 'Login',
   },
-
-  components: { AuthLayout, Logo },
 
   data: () => ({
     email: '',
@@ -39,12 +35,23 @@ export default {
       });
     },
   },
+
+  mounted() {
+    this.$store.dispatch('user/me');
+  },
 };
 </script>
 
 <template>
-  <AuthLayout>
-    <Logo />
+  <div
+    :class="[
+      $style.flex,
+      $style['w-full'],
+      $style['flex-col'],
+      $style['justify-center'],
+      $style['items-center'],
+    ]"
+  >
     <ValidationObserver
       ref="formLogin"
       v-slot="{ handleSubmit }"
@@ -90,7 +97,7 @@ export default {
               :class="$style.formCheckbox"
               type="checkbox"
               name="remember"
-            >
+            />
             <span :class="[$style['ml-2'], $style.formLabel]">{{
               $t('auth.login.remember_me')
             }}</span>
@@ -112,30 +119,20 @@ export default {
             {{ $t('auth.login.forgot_password') }}
           </BaseLink>
 
-          <BaseButton
-            :class="$style['ml-4']"
-            :disabled="tryingToLogIn"
-          >
-            <BaseSpinner
-              v-if="tryingToLogIn"
-              bg-color="#1a202c"
-            />
+          <BaseButton :class="$style['ml-4']" :disabled="tryingToLogIn">
+            <BaseSpinner v-if="tryingToLogIn" bg-color="#1a202c" />
             <span v-else>{{ $t('auth.login.submit') }}</span>
           </BaseButton>
         </div>
       </form>
     </ValidationObserver>
-
     <div :class="[$style['text-center'], $style['text-muted']]">
       {{ $t('auth.login.register_placeholder') }}
-      <BaseLink
-        :class="$style['text-blue-700']"
-        :to="{ name: 'register' }"
-      >
+      <BaseLink :class="$style['text-blue-700']" :to="{ name: 'register' }">
         {{ $t('auth.login.register') }}
       </BaseLink>
     </div>
-  </AuthLayout>
+  </div>
 </template>
 
 <style lang="scss" module>
