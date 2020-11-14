@@ -113,3 +113,21 @@
     color: #2c5282;
   }
 }
+
+.bg-secondary {
+  background-color: var(--background-secondary);
+}
+
+.formLabel {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--color-secondary);
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}

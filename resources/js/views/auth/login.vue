@@ -61,7 +61,7 @@ export default {
         $style['mb-6'],
         $style['px-6'],
         $style['py-6'],
-        $style['bg-white'],
+        $style['bg-secondary'],
         $style['rounded-lg'],
         $style['shadow-md'],
         $style['overflow-hidden'],
@@ -95,7 +95,7 @@ export default {
               :class="$style.formCheckbox"
               type="checkbox"
               name="remember"
-            >
+            />
             <span :class="[$style['ml-2'], $style.formLabel]">{{
               $t('auth.login.remember_me')
             }}</span>
@@ -117,25 +117,16 @@ export default {
             {{ $t('auth.login.forgot_password') }}
           </BaseLink>
 
-          <BaseButton
-            :class="$style['ml-4']"
-            :disabled="tryingToLogIn"
-          >
-            <BaseSpinner
-              v-if="tryingToLogIn"
-              bg-color="#1a202c"
-            />
+          <BaseButton :class="$style['ml-4']" :disabled="tryingToLogIn">
+            <BaseSpinner v-if="tryingToLogIn" bg-color="#1a202c" />
             <span v-else>{{ $t('auth.login.submit') }}</span>
           </BaseButton>
         </div>
       </form>
     </ValidationObserver>
-    <div :class="[$style['text-center'], $style['text-muted']]">
+    <div :class="$style['text-secondary']">
       {{ $t('auth.login.register_placeholder') }}
-      <BaseLink
-        :class="$style['text-blue-700']"
-        :to="{ name: 'register' }"
-      >
+      <BaseLink :class="$style['text-blue-700']" :to="{ name: 'register' }">
         {{ $t('auth.login.register') }}
       </BaseLink>
     </div>
@@ -145,10 +136,4 @@ export default {
 <style lang="scss" module>
 @import '@design/_utilities.scss';
 @import '@design/_form-checkbox.scss';
-
-.formLabel {
-  display: block;
-  font-size: 0.875rem;
-  color: #4a5568;
-}
 </style>

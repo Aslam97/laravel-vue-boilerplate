@@ -7,12 +7,12 @@
   background-origin: border-box;
   user-select: none;
   flex-shrink: 0;
-  height: 1em;
-  width: 1em;
+  height: 16px;
+  width: 16px;
   color: #4299e1;
-  background-color: #fff;
-  border-radius: 0.25rem;
-  border: 1px solid #e2e8f0;
+  background-color: var(--background-secondary);
+  border-radius: 4px;
+  border: 1px solid var(--checkbox-border);
 
   &:checked {
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 16 16' fill='%23fff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3E%3C/svg%3E");

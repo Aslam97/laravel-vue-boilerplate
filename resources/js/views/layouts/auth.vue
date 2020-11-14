@@ -1,8 +1,18 @@
 <script>
+import { mapGetters } from 'vuex';
 import Logo from '@components/logo.vue';
 import LangButton from '@components/lang-button.vue';
+
 export default {
   components: { LangButton, Logo },
+
+  computed: mapGetters('theme', ['darkMode']),
+
+  methods: {
+    changeClass() {
+      this.$store.dispatch('theme/themeToggle', !this.darkMode);
+    },
+  },
 };
 </script>
 
@@ -17,14 +27,10 @@ export default {
         $style['flex-col'],
         $style['justify-center'],
         $style['items-center'],
-        $style['bg-gray-200'],
       ]"
     >
       <Logo />
-      <transition
-        name="page"
-        mode="out-in"
-      >
+      <transition name="page" mode="out-in">
         <slot>
           <router-view :key="$route.fullPath" />
         </slot>
@@ -32,6 +38,7 @@ export default {
     </div>
 
     <LangButton />
+    <BaseTheme :fixed="true" :darkMode="darkMode" :changeClass="changeClass" />
   </div>
 </template>
 

@@ -84,16 +84,9 @@ export default {
     :name="name"
     :vid="vid"
   >
-    <label
-      v-if="label"
-      :for="name"
-      :class="$style.formLabel"
-    >
+    <label v-if="label" :for="name" :class="[$style.formLabel, $style['mb-2']]">
       {{ name }}
-      <span
-        v-if="isRequired"
-        :class="$style.formRequired"
-      >*</span>
+      <span v-if="isRequired" :class="$style.formRequired">*</span>
     </label>
 
     <input
@@ -104,7 +97,7 @@ export default {
       :placeholder="placeholder"
       :autocomplete="autocomplete"
       @input="handleInput"
-    >
+    />
     <span :class="$style.invalidFeedback">{{ errors[0] }}</span>
 
     <small :class="$style.formHelp">
@@ -114,16 +107,11 @@ export default {
 </template>
 
 <style lang="scss" module>
+@import '@design/_utilities.scss';
+
 .formGroup {
   display: block;
   margin-bottom: 1rem;
-}
-
-.formLabel {
-  display: block;
-  font-size: 0.875rem;
-  color: #4a5568;
-  margin-bottom: 0.5rem;
 }
 
 .formRequired {
@@ -135,11 +123,11 @@ export default {
 }
 
 .formControl {
-  background-color: #fff;
+  background-color: var(--text-input-background);
   border: 0;
   border-radius: 4px;
   box-sizing: border-box;
-  color: rgba(0, 0, 0, 0.87);
+  color: var(--text-input-color);
   font-size: 16px;
   font-weight: 400;
   line-height: 21px;
@@ -149,7 +137,8 @@ export default {
   padding: 8px;
   transition: box-shadow 0.15s;
   vertical-align: middle;
-  box-shadow: inset 0 0 0 2px transparent, inset 0 0 0 1px #e0e0e0;
+  box-shadow: inset 0 0 0 2px transparent,
+    inset 0 0 0 1px var(--text-input-shadow);
   width: 100%;
   max-height: 36px;
 
@@ -158,7 +147,7 @@ export default {
   }
 
   &.isInvalid {
-    box-shadow: inset 0 -2px 0 #ff5252, inset 0 0 0 1px #e0e0e0;
+    box-shadow: inset 0 -2px 0 #ff5252, inset 0 0 0 1px var(--text-input-shadow);
   }
 
   &.isInvalid:focus {

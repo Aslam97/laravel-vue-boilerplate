@@ -62,7 +62,7 @@ export default {
         $style['mb-6'],
         $style['px-6'],
         $style['py-6'],
-        $style['bg-white'],
+        $style['bg-secondary'],
         $style['rounded-lg'],
         $style['shadow-md'],
         $style['overflow-hidden'],
@@ -112,25 +112,16 @@ export default {
             $style['mt-4'],
           ]"
         >
-          <BaseButton
-            :class="$style['ml-4']"
-            :disabled="tryingToRegister"
-          >
-            <BaseSpinner
-              v-if="tryingToRegister"
-              bg-color="#1a202c"
-            />
+          <BaseButton :class="$style['ml-4']" :disabled="tryingToRegister">
+            <BaseSpinner v-if="tryingToRegister" bg-color="#1a202c" />
             <span v-else>{{ $t('auth.register.submit') }}</span>
           </BaseButton>
         </div>
       </form>
     </ValidationObserver>
-    <div :class="[$style['text-center'], $style['text-muted']]">
+    <div :class="$style['text-secondary']">
       {{ $t('auth.register.login_placeholder') }}
-      <BaseLink
-        :class="$style['text-blue-700']"
-        :to="{ name: 'login' }"
-      >
+      <BaseLink :class="$style['text-blue-700']" :to="{ name: 'login' }">
         {{ $t('auth.register.login') }}
       </BaseLink>
     </div>
