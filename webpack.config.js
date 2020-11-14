@@ -1,5 +1,7 @@
 const path = require('path');
+const zlib = require('zlib');
 const ChunkRenamePlugin = require('webpack-chunk-rename-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
 
@@ -24,6 +26,19 @@ module.exports = {
     },
   },
   plugins: [
+    new CompressionPlugin({
+      filename: '[path][base].br',
+      algorithm: 'brotliCompress',
+      test: /\.(js|css|html|svg)$/,
+      compressionOptions: {
+        params: {
+          [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
+        },
+      },
+      threshold: 10240,
+      minRatio: 0.8,
+      deleteOriginalAssets: false,
+    }),
     // https://github.com/JeffreyWay/laravel-mix/issues/1889#issuecomment-503056546
     new ChunkRenamePlugin({
       initialChunksWithEntry: true,
