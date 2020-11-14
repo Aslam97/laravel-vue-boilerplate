@@ -18,12 +18,14 @@ mix
       : {}),
   })
   .extract([
+    'vue',
     'vuex',
     'axios',
     'vee-validate',
     'vue-i18n',
     'vue-meta',
     'vue-router',
+    'vue-lazyload',
   ]);
 
 if (process.MIX_ESLINT) {
