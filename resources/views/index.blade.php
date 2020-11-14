@@ -16,12 +16,12 @@ app()->getLocale(), 'locales' => config('app.locales'), ]; @endphp
     <script>
       window.__init__ = @json($config);
     </script>
+
+    <script src="{{ mix('js/manifest.js') }}" defer></script>
+    <script src="{{ mix('js/vendor.js') }}" defer></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
   </head>
   <body>
     <div id="app"></div>
-
-    <script src="{{ mix('js/manifest.js') }}"></script>
-    <script src="{{ mix('js/vendor.js') }}"></script>
-    <script src="{{ mix('js/app.js') }}"></script>
   </body>
 </html>
