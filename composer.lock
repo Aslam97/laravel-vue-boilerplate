@@ -5041,16 +5041,16 @@
         },
         {
             "name": "fakerphp/faker",
-            "version": "v1.10.1",
+            "version": "v1.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FakerPHP/Faker.git",
-                "reference": "f2713a5016faaf6ffc60e9d456dedb5ebf0efcae"
+                "reference": "841e8bdde345cc1ea9f98e776959e7531cadea0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/f2713a5016faaf6ffc60e9d456dedb5ebf0efcae",
-                "reference": "f2713a5016faaf6ffc60e9d456dedb5ebf0efcae",
+                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/841e8bdde345cc1ea9f98e776959e7531cadea0e",
+                "reference": "841e8bdde345cc1ea9f98e776959e7531cadea0e",
                 "shasum": ""
             },
             "require": {
@@ -5060,6 +5060,7 @@
                 "fzaninotto/faker": "*"
             },
             "require-dev": {
+                "bamarni/composer-bin-plugin": "^1.4.1",
                 "ext-intl": "*",
                 "phpunit/phpunit": "^7.5.20 || ^8.5.8 || ^9.4.2"
             },
@@ -5084,7 +5085,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2020-10-28T09:32:46+00:00"
+            "time": "2020-12-11T10:39:41+00:00"
         },
         {
             "name": "filp/whoops",
