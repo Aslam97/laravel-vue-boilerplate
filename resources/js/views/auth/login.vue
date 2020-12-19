@@ -95,7 +95,7 @@ export default {
               :class="$style.formCheckbox"
               type="checkbox"
               name="remember"
-            />
+            >
             <span :class="[$style['ml-2'], $style.formLabel]">{{
               $t('auth.login.remember_me')
             }}</span>
@@ -117,8 +117,14 @@ export default {
             {{ $t('auth.login.forgot_password') }}
           </BaseLink>
 
-          <BaseButton :class="$style['ml-4']" :disabled="tryingToLogIn">
-            <BaseSpinner v-if="tryingToLogIn" bg-color="#1a202c" />
+          <BaseButton
+            :class="$style['ml-4']"
+            :disabled="tryingToLogIn"
+          >
+            <BaseSpinner
+              v-if="tryingToLogIn"
+              bg-color="#1a202c"
+            />
             <span v-else>{{ $t('auth.login.submit') }}</span>
           </BaseButton>
         </div>
@@ -126,7 +132,10 @@ export default {
     </ValidationObserver>
     <div :class="$style['text-secondary']">
       {{ $t('auth.login.register_placeholder') }}
-      <BaseLink :class="$style['text-blue-700']" :to="{ name: 'register' }">
+      <BaseLink
+        :class="$style['text-blue-700']"
+        :to="{ name: 'register' }"
+      >
         {{ $t('auth.login.register') }}
       </BaseLink>
     </div>

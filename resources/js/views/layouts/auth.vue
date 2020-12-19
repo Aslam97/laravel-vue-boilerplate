@@ -30,7 +30,10 @@ export default {
       ]"
     >
       <Logo />
-      <transition name="page" mode="out-in">
+      <transition
+        name="page"
+        mode="out-in"
+      >
         <slot>
           <router-view :key="$route.fullPath" />
         </slot>
@@ -38,7 +41,11 @@ export default {
     </div>
 
     <LangButton />
-    <BaseTheme :fixed="true" :darkMode="darkMode" :changeClass="changeClass" />
+    <BaseTheme
+      :fixed="true"
+      :dark-mode="darkMode"
+      :change-class="changeClass"
+    />
   </div>
 </template>
 

@@ -1,7 +1,6 @@
 const mix = require('laravel-mix');
 const config = require('./webpack.config');
 require('laravel-mix-vue-css-modules');
-require('laravel-mix-eslint');
 
 mix
   .js('resources/js/app.js', 'public/js')
@@ -27,10 +26,6 @@ mix
     'vue-router',
     'vue-lazyload',
   ]);
-
-if (process.MIX_ESLINT) {
-  mix.eslint();
-}
 
 mix.inProduction() ? mix.version() : mix.sourceMaps(true, 'source-map');
 

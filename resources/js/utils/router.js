@@ -17,8 +17,8 @@ function nextFactory(context, middlewareArr, index) {
     return context.next;
   }
 
-  return (...param) => {
-    context.next(...param);
+  return (...args) => {
+    context.next(...args);
 
     const nextMiddleware = nextFactory(context, middlewareArr, index + 1);
     subsequentMiddleware({ ...context, next: nextMiddleware });

@@ -3,7 +3,10 @@ export default {
   props: {
     darkMode: Boolean,
     fixed: Boolean,
-    changeClass: Function,
+    changeClass: {
+      type: Function,
+      default: () => undefined,
+    },
   },
 
   computed: {
@@ -16,7 +19,6 @@ export default {
 
 <template>
   <button
-    v-on:click.prevent="changeClass()"
     aria-label="switch theme button"
     :class="[
       $style.psAll,
@@ -26,19 +28,20 @@ export default {
         [$style.btnNight]: darkMode,
       },
     ]"
+    @click.prevent="changeClass()"
   >
     <div
       :class="{
         [$style.lightStart]: !darkMode,
         [$style.nightStart]: darkMode,
       }"
-    ></div>
+    />
     <div
       :class="{
         [$style.lightEnd]: !darkMode,
         [$style.nightEnd]: darkMode,
       }"
-    ></div>
+    />
   </button>
 </template>
 

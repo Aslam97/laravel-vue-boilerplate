@@ -19,15 +19,15 @@ export default {
     },
   },
 
+  created() {
+    this.setTheme(this.darkMode);
+  },
+
   methods: {
     setTheme(darkMode) {
       if (darkMode) document.documentElement.className = 'themeDark';
       else document.documentElement.className = 'themeLight';
     },
-  },
-
-  created() {
-    this.setTheme(this.darkMode);
   },
 };
 </script>
