@@ -96,9 +96,9 @@ export default {
               type="checkbox"
               name="remember"
             >
-            <span :class="[$style['ml-2'], $style.formLabel]">{{
-              $t('auth.login.remember_me')
-            }}</span>
+            <span :class="[$style['ml-2'], $style.formLabel]">
+              {{ $t('auth.login.remember_me') }}
+            </span>
           </div>
         </label>
 

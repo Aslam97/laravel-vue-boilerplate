@@ -35,7 +35,7 @@ export default {
         mode="out-in"
       >
         <slot>
-          <router-view :key="$route.fullPath" />
+          <RouterView :key="$route.fullPath" />
         </slot>
       </transition>
     </div>

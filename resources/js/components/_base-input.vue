@@ -41,9 +41,9 @@ export default {
       default: '',
     },
 
-    invalidBorder: {
+    disabled: {
       type: Boolean,
-      default: true,
+      default: false,
     },
   },
 
@@ -103,6 +103,7 @@ export default {
       :class="[$style.formControl, { [$style.isInvalid]: errors[0] }]"
       :placeholder="placeholder"
       :autocomplete="autocomplete"
+      :disabled="disabled"
       @input="handleInput"
     >
     <span :class="$style.invalidFeedback">{{ errors[0] }}</span>

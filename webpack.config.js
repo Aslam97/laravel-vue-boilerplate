@@ -2,7 +2,6 @@ const path = require('path');
 const ChunkRenamePlugin = require('webpack-chunk-rename-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const ESLintPlugin = require('eslint-webpack-plugin');
 
 const production = process.env.NODE_ENV === 'production';
 const report = process.argv.includes('--report');
@@ -26,15 +25,18 @@ module.exports = {
     },
   },
   plugins: [
-    new ESLintPlugin({ extensions: ['js', 'vue'], fix: true }),
     ...(report ? [new BundleAnalyzerPlugin({ openAnalyzer: true })] : []),
-    new CompressionPlugin({
-      filename: '[path][base].gz',
-      algorithm: 'gzip',
-      test: /\.js$|\.css$|\.html$/,
-      threshold: 10240,
-      minRatio: 0.8,
-    }),
+    ...(production
+      ? [
+          new CompressionPlugin({
+            filename: '[path][base].gz',
+            algorithm: 'gzip',
+            test: /\.js$|\.css$|\.html$/,
+            threshold: 10240,
+            minRatio: 0.8,
+          }),
+        ]
+      : []),
     new ChunkRenamePlugin({
       initialChunksWithEntry: true,
       '/js/app': 'js/app.js',

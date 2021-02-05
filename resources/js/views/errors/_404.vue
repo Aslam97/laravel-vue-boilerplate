@@ -5,7 +5,9 @@ export default {
     title: '404',
     meta: [{ name: 'description', content: '404' }],
   },
+
   components: { Layout },
+
   props: {
     resource: {
       type: String,

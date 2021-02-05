@@ -45,5 +45,3 @@ export default {
     </BaseLink>
   </div>
 </template>
-
-<style lang="scss" module></style>
