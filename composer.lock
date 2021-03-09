@@ -1005,16 +1005,16 @@
         },
         {
             "name": "laravel/sanctum",
-            "version": "v2.8.2",
+            "version": "v2.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sanctum.git",
-                "reference": "331bd6572610b06ad6dd6b2a7c15a0465a3ca9c9"
+                "reference": "d1e2354d94adad9685cf59b2ab0727b8d8f0a19c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sanctum/zipball/331bd6572610b06ad6dd6b2a7c15a0465a3ca9c9",
-                "reference": "331bd6572610b06ad6dd6b2a7c15a0465a3ca9c9",
+                "url": "https://api.github.com/repos/laravel/sanctum/zipball/d1e2354d94adad9685cf59b2ab0727b8d8f0a19c",
+                "reference": "d1e2354d94adad9685cf59b2ab0727b8d8f0a19c",
                 "shasum": ""
             },
             "require": {
@@ -1061,7 +1061,7 @@
                 "laravel",
                 "sanctum"
             ],
-            "time": "2020-11-24T17:31:19+00:00"
+            "time": "2021-03-09T19:17:50+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -4824,12 +4824,12 @@
             "version": "1.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/webmozart/assert.git",
+                "url": "https://github.com/webmozarts/assert.git",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "shasum": ""
             },
