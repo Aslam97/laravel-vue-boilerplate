@@ -8,10 +8,6 @@ app()->getLocale(), 'locales' => config('app.locales'), ]; @endphp
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Laravel Vue Boilerplate" />
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}" />
-    <!--  -->
-    <link rel="preload" href="{{ mix('js/manifest.js') }}" as="script" />
-    <link rel="preload" href="{{ mix('js/vendor.js') }}" as="script" />
-    <link rel="preload" href="{{ mix('js/app.js') }}" as="script" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}" />

@@ -10,9 +10,6 @@ mix
   .vueCssModules({
     oneOf: true,
     preProcessor: { scss: true },
-    ...(mix.inProduction()
-      ? { cssLoaderOptions: { localIdentName: 'css-[hash:base64:7]' } }
-      : {}),
   })
   .eslint({ fix: true })
   .extract([

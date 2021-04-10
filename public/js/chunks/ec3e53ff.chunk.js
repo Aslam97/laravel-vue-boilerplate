@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{Jxw7:function(a){a.exports=JSON.parse('{"auth":{"login":{"title":"Masuk","email":"Email","password":"Kata sandi","remember_me":"Ingat Saya","forgot_password":"Lupa Kata Sandi?","submit":"Masuk","register_placeholder":"Belum memiliki akun?","register":"Daftar"}}}')}}]);

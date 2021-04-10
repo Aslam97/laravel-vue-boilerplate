@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{YyN6:function(e){e.exports=JSON.parse('{"auth":{"login":{"title":"Login","email":"Email","password":"Password","remember_me":"Remember Me","forgot_password":"Forgot Your Password?","submit":"Log in","register_placeholder":"Don\'t have an account?","register":"Register"}}}')}}]);
