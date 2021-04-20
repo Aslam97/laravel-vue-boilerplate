@@ -5,9 +5,6 @@
   "license": "MIT",
   "private": true,
   "version": "1.0.0",
-  "engines": {
-    "node": "12.x"
-  },
   "scripts": {
     "dev": "npm run development",
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
