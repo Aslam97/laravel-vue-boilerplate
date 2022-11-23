@@ -17,7 +17,7 @@
     "laravel/tinker": "^2.5",
     "laravel/ui": "^3.1",
     "renatomarinho/laravel-page-speed": "^1.9",
-    "spatie/laravel-permission": "^3.17"
+    "spatie/laravel-permission": "^5.7"
   },
   "require-dev": {
     "facade/ignition": "^2.5",
